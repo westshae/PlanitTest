@@ -4,5 +4,14 @@
   "main": "index.js",
   "repository": "https://github.com/westshae/PlanitTest",
   "author": "Shae West <shaewest02@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test:all": "cypress run --spec 'src/*.js'", 
+    "test:case1": "cypress run --spec 'src/TestCase1.js'", 
+    "test:case2": "cypress run --spec 'src/TestCase2.js'", 
+    "test:case3": "cypress run --spec 'src/TestCase3.js'"
+  },
+  "dependencies": {
+    "cypress": "^13.15.0"
+  }
 }
