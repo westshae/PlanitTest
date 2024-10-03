@@ -1,6 +1,6 @@
 describe('ContactForm', () => {
     Cypress._.times(5, () => {
-        it('After 30 seconds, it should show a success message.', () => {
+        it('After 10 seconds, it should show a success message.', () => {
             cy.visit('https://jupiter.cloud.planittesting.com/#/contact');
             cy.reload()
             cy.get('input[name="forename"]').type("Forename")
