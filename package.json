@@ -1,0 +1,8 @@
+{
+  "name": "ShaeWestPlanitTest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/westshae/PlanitTest",
+  "author": "Shae West <shaewest02@gmail.com>",
+  "license": "MIT"
+}
