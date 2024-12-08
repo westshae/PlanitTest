@@ -1,22 +1,17 @@
+const addToCart = (productId, quantity) => {
+    cy.get(`#product-${productId}`).find('.btn-success').then(($button) => {
+        for (let i = 0; i < quantity; i++) {
+            cy.wrap($button).click();
+        }
+    });
+};
+
 describe('Cart', () => {
     it('Add items to cart, confirm their price, subtotal price, and total price.', () => {
         cy.visit('https://jupiter.cloud.planittesting.com/#/shop');
-        cy.get('#product-2')//Stuffed Frog
-            .find('.btn-success')
-            .click()
-            .click();
-        cy.get('#product-4')//Fluffy Bunny
-            .find('.btn-success')
-            .click()
-            .click()
-            .click()
-            .click()
-            .click();
-        cy.get('#product-7')//Valentine Bear
-            .find('.btn-success')
-            .click()
-            .click()
-            .click();
+        addToCart(2, 2)//Stuffed Frog, ID 2, two items.
+        addToCart(4, 5)//Fluffy Bunny, ID 4, 5 times.
+        addToCart(7, 3)//Valentine Bear, ID 7, 3 times.
         cy.visit('https://jupiter.cloud.planittesting.com/#/cart');
 
         const expectedProducts = [
