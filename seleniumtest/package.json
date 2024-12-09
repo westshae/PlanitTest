@@ -1,0 +1,18 @@
+{
+  "name": "seleniumtest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Shae West",
+  "license": "MIT",
+  "scripts": {
+    "test:all": "npx mocha 'src/tests/*.js'", 
+    "test:case1": "npx mocha 'src/tests/TestCase1.js'", 
+    "test:case2": "npx mocha 'src/tests/TestCase2.js'", 
+    "test:case3": "npx mocha 'src/tests/TestCase3.js'"
+  },
+  "dependencies": {
+    "chai": "^5.1.2",
+    "mocha": "^11.0.1",
+    "selenium-webdriver": "^4.27.0"
+  }
+}

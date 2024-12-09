@@ -1,2 +1,4 @@
-node_modules
+cypresstest/node_modules
+seleniumtest/node_modules
+
 cypress/screenshots
