@@ -10,10 +10,6 @@ class CartPage {
     await this.driver.get(this.url);
   }
 
-  //Take product name, return individual price
-  //Take product name, return count of products in cart
-  //Take product name, return subtotal price
-
   async getProductRow(productName){
     return await this.driver.wait(
       until.elementLocated(By.xpath(`//tr//td[contains(text(), ' ${productName}')]`)),
