@@ -37,6 +37,14 @@ class ContactPage {
     await submitButton.click();
   }
 
+  async backToForm(){
+    const backButton = await this.driver.wait(
+      until.elementLocated(By.linkText('« Back')),
+      5000
+    );
+    await backButton.click();
+  }
+
   async errorMessageVisible() {
     try {
       await this.driver.wait(
@@ -49,25 +57,40 @@ class ContactPage {
     }
   }
 
-  async populateForename(text){
-    const input = await this.driver.findElement(By.id('forename'))
+  async successfulSubmissionMessageVisible(){
+    try {
+      await this.driver.wait(
+        until.elementLocated(By.css('.alert-success')),
+        15000
+      );
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  async populateInputField(id, text){
+    const input = await this.driver.wait(
+      until.elementLocated(By.id(id)),
+      5000
+    );
     await input.sendKeys(text)
+  }
+
+  async populateForename(text){
+    await this.populateInputField('forename', text)
   }
   async populateSurname(text){
-    const input = await this.driver.findElement(By.id('surname'))
-    await input.sendKeys(text)
+    await this.populateInputField('surname', text)
   }
   async populateEmail(text){
-    const input = await this.driver.findElement(By.id('email'))
-    await input.sendKeys(text)
+    await this.populateInputField('email', text)
   }
   async populateTelephone(text){
-    const input = await this.driver.findElement(By.id('telephone'))
-    await input.sendKeys(text)
+    await this.populateInputField('telephone', text)
   }
   async populateMessage(text){
-    const input = await this.driver.findElement(By.id('message'))
-    await input.sendKeys(text)
+    await this.populateInputField('message', text)
   }
 }
 
