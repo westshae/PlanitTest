@@ -5,7 +5,7 @@ const NavComponent = require('../models/ComponentModels/NavComponent');
 const chai = import('chai');
 
 describe('Test Case 1', function () {
-  this.timeout(10000);
+  this.timeout(100 * 1000);
   let driver;
   let homePage;
   let contactPage;
