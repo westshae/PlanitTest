@@ -1,6 +1,7 @@
 const { Builder } = require('selenium-webdriver');
-const HomePage = require("../models/HomePage");
-const ContactPage = require("../models/ContactPage");
+const HomePage = require("../models/PageModels/HomePage");
+const ContactPage = require("../models/PageModels/ContactPage");
+const NavComponent = require('../models/ComponentModels/NavComponent');
 const chai = import('chai');
 
 describe('Test Case 2', function () {
@@ -8,10 +9,12 @@ describe('Test Case 2', function () {
   let driver;
   let homePage;
   let contactPage;
+  let navigationBar;
 
   before(async function () {
     driver = new Builder().forBrowser('chrome').build();
     await driver.manage().window().setRect({ width: 1920, height: 1080 });
+    navigationBar = new NavComponent(driver);
     homePage = new HomePage(driver);
     contactPage = new ContactPage(driver);
   });
@@ -22,7 +25,7 @@ describe('Test Case 2', function () {
 
   it('should navigate to contact page', async () => {
     await homePage.open();
-    await homePage.navigateToContact();
+    await navigationBar.navigateToContact();
     const currentUrl = await driver.getCurrentUrl();
     (await chai).expect(currentUrl).to.include('contact');
   })
